@@ -1,0 +1,91 @@
+.home-container {
+  max-width: 1200px;
+  width: 90vw;
+  min-width: 360px;
+  margin: auto;
+  padding: 2rem;
+  background: #1b1e2f; 
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .home-title {
+    font-size: 2rem;
+    color: #1db954; // Spotify Green
+    margin-bottom: 1rem;
+  }
+
+  .home-description {
+    font-size: 1.2rem;
+    color: #b3b3b3;
+    max-width: 800px;
+    margin-bottom: 2rem;
+  }
+
+  .home-buttons {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      width: 100px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      padding: 0.5rem;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .login-btn {
+      background: $accent-green;
+      color: white;
+
+      &:hover {
+        background: #17a44b;
+      }
+    }
+
+    .signup-btn {
+      background: #ff4d4d;
+      color: white;
+
+      &:hover {
+        background: #cc0000;
+      }
+    }
+  }
+}
+
+// Mobile Responsive
+@media (max-width: 768px) {
+  .home-container {
+    width: 95vw;
+    padding: 1rem;
+  }
+
+  .home-content {
+    padding: 1rem;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    width: 100%;
+    
+    button {
+      width: 100%;
+    }
+  }
+}

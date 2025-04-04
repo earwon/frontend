@@ -1,0 +1,121 @@
+.login-container {
+  max-width: 1200px;
+  width: 90vw;
+  min-width: 360px;
+  margin: auto;
+  padding: 2rem;
+  background: #1b1e2f;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  .login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .login-title {
+    font-size: 2rem;
+    color: $accent-green;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+  }
+
+  .input-group {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      font-size: 1rem;
+      color: #b3b3b3;
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      background: #222;
+      color: white;
+    }
+
+    .error {
+      color: #ff4d4d;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+  }
+
+  .login-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    
+    button {
+      flex: 1;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .login-btn {
+      background: #1db954;
+      color: white;
+
+      &:hover {
+        background: #17a44b;
+      }
+    }
+
+    .signup-btn {
+      background: #ff4d4d;
+      color: white;
+
+      &:hover {
+        background: #cc0000;
+      }
+    }
+  }
+
+  .server-error {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #ff4d4d;
+  }
+}
+
+// ✅ Responsive Design
+@media (max-width: 768px) {
+  .login-container {
+    width: 95vw;
+    padding: 1rem;
+  }
+
+  .login-content {
+    padding: 1rem;
+  }
+
+  .login-buttons {
+    flex-direction: column;
+    
+    button {
+      width: 100%;
+    }
+  }
+}

@@ -9,4 +9,9 @@ const api = axios.create({
   },
 });
 
+api.interceptors.request.use((config) => {
+  config.withCredentials = true;
+  return config;
+});
+
 export default api;

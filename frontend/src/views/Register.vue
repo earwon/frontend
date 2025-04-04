@@ -1,42 +1,48 @@
 <template>
   <div class="register-container">
-    <h2>Register</h2>
-    <form @submit.prevent="register">
-      <div class="input-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" v-model="name" placeholder="Enter your name" />
-        <p v-if="errors.name" class="error">{{ errors.name }}</p>
-      </div>
+    <div class="register-content">
+      <h2 class="register-title">Register</h2>
+      <form @submit.prevent="register">
+        <div class="input-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" v-model="name" placeholder="Enter your name" />
+          <p v-if="errors.name" class="error">{{ errors.name }}</p>
+        </div>
 
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" v-model="email" placeholder="Enter your email" />
-        <p v-if="errors.email" class="error">{{ errors.email }}</p>
-      </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" v-model="email" placeholder="Enter your email" />
+          <p v-if="errors.email" class="error">{{ errors.email }}</p>
+        </div>
 
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="password" placeholder="Enter your password" />
-        <p v-if="errors.password" class="error">{{ errors.password }}</p>
-      </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" v-model="password" placeholder="Enter your password" />
+          <p v-if="errors.password" class="error">{{ errors.password }}</p>
+        </div>
 
-      <div class="input-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" v-model="confirmPassword" placeholder="Confirm your password" />
-        <p v-if="errors.confirmPassword" class="error">{{ errors.confirmPassword }}</p>
-      </div>
+        <div class="input-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" v-model="confirmPassword" placeholder="Confirm your password" />
+          <p v-if="errors.confirmPassword" class="error">{{ errors.confirmPassword }}</p>
+        </div>
 
-      <div class="input-group">
-        <label for="role">Role</label>
-        <select id="role" v-model="role">
-          <option value="user">User</option>
-          <option value="admin">Admin</option>
-        </select>
-      </div>
+        <div class="input-group">
+          <label for="role">Role</label>
+          <select id="role" v-model="role" class="role-select">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
 
-      <button type="submit">Register</button>
-      <p v-if="errors.server" class="error server-error">{{ errors.server }}</p>
-    </form>
+        <div class="login-buttons">
+          <button type="submit" class="login-btn">Register</button>
+          <button type="button" class="signup-btn" @click="goToLogin">Go to Login</button>
+        </div>
+
+        <p v-if="errors.server" class="error server-error">{{ errors.server }}</p>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -79,72 +85,13 @@ const register = async () => {
       password_confirmation: confirmPassword.value,
       role: role.value,
     });
-    router.push("/albums"); // Redirect after success
+    router.push({ name: 'Login' }); // Redirect after success
   } catch (error: any) {
     errors.value.server = error.response?.data?.message || "Registration failed";
   }
 };
+
+const goToLogin = () => {
+  router.push({ name: "Login" });
+};
 </script>
-<style lang="scss" scoped>
-.register-container {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-
-  h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #000 !important;
-  }
-
-  .input-group {
-    margin-bottom: 15px;
-    text-align: left;
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    .error {
-      color: red;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-  }
-
-  button {
-    width: 100%;
-    padding: 10px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-
-    &:hover {
-      background: #0056b3;
-    }
-  }
-
-  .server-error {
-    margin-top: 10px;
-    font-weight: bold;
-  }
-}
-</style>

@@ -1,0 +1,129 @@
+.register-container {
+  max-width: 1200px;
+  width: 90vw;
+  min-width: 360px;
+  margin: auto;
+  padding: 2rem;
+  background: #1b1e2f; 
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: ruby;
+
+  .register-content {
+    width: 100%;
+    max-width: 500px;
+    // background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .register-title {
+    font-size: 2rem;
+    color: $accent-green;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+  }
+
+  .input-group {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      font-size: 1rem;
+      color: #b3b3b3;
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      background: #222;
+      color: white;
+    }
+
+    .error {
+      color: $danger;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+  }
+
+  .login-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    
+    button {
+      flex: 1;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .login-btn {
+      background: $accent-green;
+      color: white;
+
+      &:hover {
+        background: #17a44b;
+      }
+    }
+
+    .signup-btn {
+      background: #ff4d4d;
+      color: white;
+
+      &:hover {
+        background: #cc0000;
+      }
+    }
+  }
+
+  .server-error {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #ff4d4d;
+  }
+
+  .role-select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%22292%22%20height%3D%22292%22%20viewBox%3D%220%200%20292%20292%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069l-14-14c-4-4-10-4-14%200L146%20168%2033%2055c-4-4-10-4-14%200L5%2069c-4%204-4%2010%200%2014l133%20133c4%204%2010%204%2014%200l135-135c4-4%204-10%200-14z%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+  }
+}

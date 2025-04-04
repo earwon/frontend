@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap');
+
+// Import Variables
+@import "./_variable";
+
+// Pages Styles
+@import './pages/albums';
+@import './pages/login';
+@import './pages/register';
+@import './pages/home';
+
+body {
+  font-family: $font-body;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}

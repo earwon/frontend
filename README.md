@@ -3,5 +3,7 @@
 bash
 cd frontend
 npm install
+npm install
+
+to run the frontend app
 npm run dev
-npm install -D sass-embedded

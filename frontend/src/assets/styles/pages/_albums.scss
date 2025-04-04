@@ -1,0 +1,215 @@
+.albums-container {
+  max-width: 1200px; 
+  width: 90vw;        
+  min-width: 360px;   
+  margin: auto;      
+  padding: 2rem;     
+  background: #1b1e2f; 
+  border-radius: 12px;
+  color: white;
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #181818;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  
+    .dashboard-header__left {
+      display: flex;
+      align-items: center;
+    }
+  
+    .user-role {
+      font-size: 1.5rem;
+      color: #b3b3b3;
+      margin-right: 1rem;
+    }
+  
+    .dashboard-title {
+      flex-grow: 1;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #1db954; 
+    }
+  
+    .logout-btn {
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+  
+      &:hover {
+        background: #cc0000;
+      }
+    }
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid $border;
+    border-radius: 6px;
+    background-color: $dark-light;
+    color: $text-light;
+    font-size: 1rem;
+  }
+
+  .album-card {
+    background-color: $card-bg;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .album-info {
+      flex: 1 1 60%;
+      margin-bottom: 1rem;
+
+      h3 {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+        color: $accent-blue;
+      }
+
+      p {
+        margin: 0.3rem 0;
+        color: $text-muted;
+      }
+    }
+
+    .actions {
+
+      button {
+        flex: 1 1 45%;
+        padding: 0.6rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: $button-bg;
+        color: $text-light;
+        transition: background 0.3s;
+        text-align: center;
+        width: 150px;
+        margin-left: 10px;
+
+        &.active {
+          font-weight: bold;
+          background-color: $highlight;
+        }
+      }
+
+      .delete-btn {
+        background: $danger;
+
+        &:hover {
+          background-color: darken($danger, 10%);
+        }
+      }
+    }
+  }
+
+  .pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+
+    button {
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: $accent-blue;
+      color: white;
+
+      &:disabled {
+        background: #666;
+        cursor: not-allowed;
+      }
+    }
+
+    span {
+      color: $text-muted;
+      font-size: 1rem;
+    }
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .albums-container {
+    max-width: 95vw;
+    padding: 1rem;
+
+    .dashboard__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .album-card {
+      flex-direction: column;
+
+      .album-info, .actions {
+        flex: 1 1 100%;
+      }
+
+      .actions {
+        justify-content: space-between;
+      }
+    }
+
+    .search-bar {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .albums-container {
+    .dashboard-header {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+  
+      .dashboard-title {
+        flex-grow: unset;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .albums-container {
+    width: 95vw;
+    padding: 1rem;
+
+    .dashboard-header {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+  
+      .dashboard-title {
+        flex-grow: unset;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .albums-container {
+    width: 80vw;  
+    max-width: 1200px;
+  }
+}
