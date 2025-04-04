@@ -73,6 +73,7 @@ import { useRouter } from "vue-router";
 import { useAlbumStore } from "@/stores/album";
 import { useAuthStore } from "@/stores/auth";
 import api from "@/lib/api";
+import Swal from 'sweetalert2';
 
 const albumStore = useAlbumStore();
 const authStore = useAuthStore();
@@ -115,9 +116,20 @@ const toggleVote = (albumId: number, voteType: "upvote" | "downvote") => {
 
 // **Delete Album (Admin Only)**
 const deleteAlbum = (albumId: number) => {
-  if (confirm("Are you sure you want to delete this album?")) {
-    albumStore.deleteAlbum(albumId);
-  }
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to undo this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      albumStore.deleteAlbum(albumId);
+      Swal.fire('Deleted!', 'The Album has been deleted.', 'success')
+    }
+  })
 };
 
 const logout = async () => {
